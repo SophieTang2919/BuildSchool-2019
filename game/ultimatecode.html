@@ -14,77 +14,67 @@
 </head>
 
 <body>
-    <div class="container">
-        <h2>終極密碼</h2>
-        <!-- <div class="col-5">
+    <div class="container bg-dark">
+        <h2 class="text-center text-white">終極密碼</h2>
+        <ul id="userdata" class="list-group">
+            <li class="list-group-item text-center">
+                0~100
+            </li>
+        </ul>
+        <div class="input-group mb-3 justify-content-center">
+            <input type="text" class="text-center" aria-label="Recipient's username" aria-describedby="button-addon2"
+                id="userenter">
         </div>
-        <div class="col-2 bg-dark text-white text-center">
-            <h5 class="mt-2">終極密碼</h5>
-            <div class="form-group">
-                <label for=""></label>
-                <input type="text" class="form-control bg-dark text-white border-0" name="maxmin" id="maxmin"
-                    aria-describedby="maxmin" placeholder="0 ~ 99" disabled>
+        <div class="row">
+            <div class="col">
+                <button type="button" class="btn btn-secondary btn-block p-3 input-pad">1</button>
             </div>
-            <div class="form-group">
-                <label for=""></label>
-                <input type="text" class="form-control bg-dark text-white border-0" name="ans" id="ans"
-                    aria-describedby="ans" placeholder="" disabled>
+            <div class="col">
+                <button type="button" class="btn btn-secondary btn-block p-3 input-pad">2</button>
             </div>
-            <div class="row mt-2">
-                <div class="col">
-                    <button type="button" class="btn btn-block btn-outline-light rounded" id="btnrandom">開始遊戲</button>
-                </div>
+            <div class="col">
+                <button type="button" class="btn btn-secondary btn-block p-3 input-pad">3</button>
             </div>
-            <div class="row mt-2">
-                <div class="col-4">
-                    <button type="button" class="btn btn-outline-light rounded-circle" id="button" disabled>1</button>
-                </div>
-                <div class="col-4">
-                    <button type="button" class="btn btn-outline-light rounded-circle" id="button" disabled>2</button>
-                </div>
-                <div class="col-4">
-                    <button type="button" class="btn btn-outline-light rounded-circle" id="button" disabled>3</button>
-                </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col">
+                <button type="button" class="btn btn-secondary btn-block p-3 input-pad">4</button>
             </div>
-            <div class="row mt-2">
-                <div class="col-4">
-                    <button type="button" class="btn btn-outline-light rounded-circle" id="button" disabled>4</button>
-                </div>
-                <div class="col-4">
-                    <button type="button" class="btn btn-outline-light rounded-circle" id="button" disabled>5</button>
-                </div>
-                <div class="col-4">
-                    <button type="button" class="btn btn-outline-light rounded-circle" id="button" disabled>6</button>
-                </div>
+            <div class="col">
+                <button type="button" class="btn btn-secondary btn-block p-3 input-pad">5</button>
             </div>
-            <div class="row mt-2">
-                <div class="col-4">
-                    <button type="button" class="btn btn-outline-light rounded-circle" id="button" disabled>7</button>
-                </div>
-                <div class="col-4">
-                    <button type="button" class="btn btn-outline-light rounded-circle" id="button" disabled>8</button>
-                </div>
-                <div class="col-4">
-                    <button type="button" class="btn btn-outline-light rounded-circle" id="button" disabled>9</button>
-                </div>
+            <div class="col">
+                <button type="button" class="btn btn-secondary btn-block p-3 input-pad">6</button>
             </div>
-            <div class="row mt-2 mb-2">
-                <div class="col-4">
-                    <button type="button" class="btn btn-outline-danger rounded" id="btnclean" disabled>
-                        <i class="fas fa-times"></i>
-                    </button>
-                </div>
-                <div class="col-4">
-                    <button type="button" class="btn btn-outline-light rounded-circle" id="button" disabled>0</button>
-                </div>
-                <div class="col-4">
-                    <button type="button" class="btn btn-outline-success rounded" id="btncheck" disabled>
-                        <i class="fas fa-check"></i>
-                    </button>
-                </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col">
+                <button type="button" class="btn btn-secondary btn-block p-3 input-pad">7</button>
             </div>
-        </div> -->
+            <div class="col">
+                <button type="button" class="btn btn-secondary btn-block p-3 input-pad">8</button>
+            </div>
+            <div class="col">
+                <button type="button" class="btn btn-secondary btn-block p-3 input-pad">9</button>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col">
+                <button type="button" class="btn btn-secondary btn-block p-3" id="delete">清除</button>
+            </div>
+            <div class="col">
+                <button type="button" class="btn btn-secondary btn-block p-3 input-pad">0</button>
+            </div>
+            <div class="col">
+                <button type="button" class="btn btn-secondary btn-block p-3" id="enter"
+                    onclick="calculate()">輸入</button>
+            </div>
+        </div>
     </div>
+
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -97,6 +87,20 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+    <script>
+        function calculate() {
+            var input = document.getElementById("")
+        }
+        function inder() {
+            var userenter = document.getElementById("userenter");
+            var text = this.innerHTML;
+            userenter.value += text;
+        }
+        var inputButton = document.getElementsByClassName("input-pad");
+        for (var i = 0; i < inputButton.length; i++) {
+            inputButton[i].onclick = inder;
+        }
+    </script>
 </body>
 
 </html>

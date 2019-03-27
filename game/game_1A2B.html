@@ -151,19 +151,18 @@
   <!--<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>-->
   <script>
     var answer = "";
-
+    startGame();
     function startGame() {
       document.getElementById("guessResults").innerHTML = "";
       document.getElementById("userGuess").value = "";
       answer = "";
-
       while (answer.length < 4) {
         var number = Math.floor(Math.random() * 10);
         if (answer.indexOf(number) == -1) {
           answer += number;
         }
       }
-      alert("開始猜");
+      // alert("開始猜"); //強制先執行這一行
     }
 
     function abortGame() {
@@ -221,7 +220,7 @@
       //第一種
       if (answer != thisRoundAnswer) {
         document.getElementById("guessResults").innerHTML += "<li class='list-group-item'><span class='label label-danger'>" + a + "A" + b + "B</span>" + thisRoundAnswer + "</li>"
-        userGuess.value="";
+        userGuess.value = "";
       }
       else {
         document.getElementById("guessResults").innerHTML += "<li class='list-group-item'><span class='label label-success'>" + a + "A" + b + "B</span>" + thisRoundAnswer + "</li>"
@@ -244,6 +243,7 @@
         document.getElementById("userGuess").value = "";
       }
     }
+    
   </script>
 </body>
 
