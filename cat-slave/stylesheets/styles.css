@@ -718,6 +718,14 @@ h1.logo img {
 
 .principle h2 img {
   display: none;
+  /* 元素具有區塊元素的特性，但寬度預設隨內容改變，也不會造成換行 */
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  /* 要用圓形 */
+  margin-right: 5px;
+  vertical-align: middle;
+  background: #fff;
 }
 
 .principle h2::before {
@@ -729,6 +737,14 @@ h1.logo img {
   background-size: 60px 300px;
   border-radius: 50%;
   vertical-align: middle;
+  -webkit-animation-name: speaking;
+          animation-name: speaking;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-timing-function: steps(4);
+          animation-timing-function: steps(4);
 }
 
 .principle h2::after {

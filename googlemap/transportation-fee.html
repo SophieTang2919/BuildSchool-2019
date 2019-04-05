@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>預估交通費用</title>
+</head>
+
+
+<body>
+    <h1 class="text-center">預估交通費用</h1>
+    <div class="row ml-2">
+        <div class="col-7">
+            <div id="map" style="height: 600px;width: 900px;"></div>
+        </div>
+        <div class="col-5">
+            <ul class="navbar-nav ml-3">
+                <h3>自行開車</h3>
+                <li>距離:</li>
+                <li>收費路段:</li>
+                <li>時間:</li>
+                <li>費用:</li>
+            </ul>
+            <br />
+            <ul class="navbar-nav ml-3">
+                <h3>搭計程車</h3>
+                <li>距離:</li>
+                <li>收費路段:</li>
+                <li>時間:</li>
+                <li>費用:</li>
+            </ul>
+            <br />
+            <ul class="navbar-nav ml-3">
+                <h3>大眾運輸</h3>
+                <li>距離:</li>
+                <li>收費路段:</li>
+                <li>時間:</li>
+                <li>費用:</li>
+            </ul>
+        </div>
+        <div class="col-4"></div>
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB5VnrKtEbXGov9c2ucVtK6Xg3foOjxoHU&callback=initMap">
+    </script>
+
+    <script>
+        initMap();
+        function initMap() {
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 16,
+                center: { lat: 24.8054104, lng: 120.9736976 }
+            });
+
+            map.addListener('click', function (e) {
+                placeMarkerAndPanTo(e.latLng, map);
+            });
+        }
+
+        function placeMarkerAndPanTo(latLng, map) {
+            var marker = new google.maps.Marker({
+                position: latLng,
+                map: map
+            });
+            map.panTo(latLng);
+        }
+    </script>
+
+</body>
+
+</html>

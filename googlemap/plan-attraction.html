@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>旅遊景點規劃</title>
+</head>
+
+<body>
+    <div class="row">
+        <div class="col-7">
+            <div id="map" style="height: 600px;width: 900px;"></div>
+        </div>
+        <div class="col-5">
+            <div class="form-group">
+                <p>旅館</p>
+                <select class="custom-select" id="hotal" style="width:300px" multiple>
+                    <option> </option>
+                </select>
+            </div>
+            <div class="form-group">
+                <p>景點</p>
+                <select class="custom-select" id="place" style="width:300px;height: 400px;" multiple>
+                    <option> </option>
+                </select>
+            </div>
+            <button type="button" id="create" class="btn btn-light" onclick="calculateAndDisplayRoute()">規劃路線</button>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB5VnrKtEbXGov9c2ucVtK6Xg3foOjxoHU">
+    </script>
+
+
+    <script>
+        initMap();
+        function initMap() {
+            // 載入路線服務與路線顯示圖層
+            var directionsService = new google.maps.DirectionsService();
+            var directionsDisplay = new google.maps.DirectionsRenderer();
+            // 初始化地圖
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 16,
+                center: { lat: 24.8054104, lng: 120.9736976 }
+            });
+            // 放置路線圖層
+            directionsDisplay.setMap(map);
+            // 路線相關設定
+            var urlHotal = "http://opendata.hccg.gov.tw/dataset/39ee314b-7ce7-4265-a6b5-b57f42392da8/resource/6a3a5f61-5383-419d-a94c-df710071a51e/download/20180321131425502.json";
+            $.ajax({
+                type: "get",
+                url: urlHotal,
+                dataType: "json",
+                success: function (response) {
+                    for (var i = 0; i < response.length; i++) {
+                        
+                        var marker = new google.maps.Marker({
+                            position: {
+                                lat: parseFloat(response[i].緯度),
+                                lng: parseFloat(response[i].經度)
+                            },
+                            map: map,
+                            icon: "http://icons.iconarchive.com/icons/dapino/summer-holiday/32/hotel-icon.png",
+                            title: response[i].旅館名稱
+                        });
+                        document.getElementById("hotal").innerHTML += "<option>" + response[i].旅館名稱 + "</option>"
+                    }
+                }
+            });
+
+
+            var urlLoction = "http://opendata.hccg.gov.tw/dataset/7ea7e303-df62-4fbe-a84f-99bdd724b577/resource/c15a9c5f-f6cb-4da5-b8a6-5e7bc4c9eb08/download/20180501160733080.json";
+            $.ajax({
+                type: "get",
+                url: urlLoction,
+                dataType: "json",
+                success: function (data) {
+                    for (var i = 0; i < data.length; i++) {
+                        var marker = new google.maps.Marker({
+                            position: {
+                                lat: parseFloat(data[i].緯度),
+                                lng: parseFloat(data[i].經度)
+                            },
+                            map: map,
+                            icon: "http://icons.iconarchive.com/icons/icons8/ios7/32/City-Monument-icon.png",
+                            title: data[i].古蹟名稱
+                        });
+                        document.getElementById("place").innerHTML += "<option>" + data[i].古蹟名稱 + "</option>"
+                    }
+                }
+            });
+            document.getElementById('create').addEventListener('click', function () {
+                calculateAndDisplayRoute(directionsService, directionsDisplay);
+            });
+        }
+        function calculateAndDisplayRoute(directionsService, directionsDisplay) {
+            var waypts = [];
+            var checkboxArray = document.getElementById('hotal');
+            for (var i = 0; i < checkboxArray.length; i++) {
+                if (checkboxArray.options[i].selected) {
+                    waypts.push({
+                        location: checkboxArray[i].value,
+                        stopover: true
+                    });
+                }
+            }
+            var checkboxArray = document.getElementById('place');
+            for (var i = 0; i < checkboxArray.length; i++) {
+                if (checkboxArray.options[i].selected) {
+                    waypts.push({
+                        location: checkboxArray[i].value,
+                        stopover: true
+                    });
+                }
+            }
+
+            directionsService.route({
+                origin: document.getElementById('hotal').value,
+                destination: document.getElementById('place').value,
+                waypoints: waypts,
+                optimizeWaypoints: true,
+                travelMode: 'DRIVING'
+            }, function (response, status) {
+                if (status === 'OK') {
+                    directionsDisplay.setDirections(response);
+                } else {
+                    window.alert('Directions request failed due to ' + status)
+                }
+            });
+        }
+
+    </script>
+
+</body>
+
+</html>
