@@ -68,7 +68,7 @@
         var a;
         //圖片自動生成&切割
         for (var i = 0; i < 16; i++) {
-            $("#box").append("<div class='col-3 picture'>" + i + "</div>");
+            $("#box").append("<div class='col-3 picture'></div>");
             var row = parseInt(i / 4);
             var col = i % 4;
             $(".picture:last").css("background-position-y", row * -150 + "px");//圖片往上移
@@ -86,7 +86,7 @@
             a = $("#box").children().toArray(); //#box的子元素，變成陣列
             var n = 0;
             b = false;
-            while (n <= 200) {
+            while (n <= 300) {
                 var change_num = Math.floor(Math.random() * a.length);
                 $(a[change_num]).click();
                 n++;
