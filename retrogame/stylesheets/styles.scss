@@ -2,12 +2,39 @@
 
 #box {
     width: 600px;
+    height: 600px;
+    border:2px #88d8bd solid;
+    position: relative;
 }
 
-.row {
-    border: 1px #fff solid;
+// .llttle-box {
+//     border: 1px #fff solid;
+//     background: #2b5e4d;
+//     width: 148px;
+//     height: 148px;
+//     float: left;
+// }
+
+button {
+    background: #086b8a;
+    width: 100px;
+    height: 50px;
+    color: #fff;
+    font-size: 18px;
 }
 
-.col {
+.picture {
+    background-image: url("http://lorempixel.com/600/600/cats");
+    width: 150px;
+    height: 150px;
     border: 1px #fff solid;
+    position: absolute;
 }
+
+.excample {
+    img {
+        width: 150px;
+        height: 150px;
+    }
+}
+

@@ -21,10 +21,6 @@
     <div class="container" style="width:350px;">
         <div class="rounded border border-dark mt-5">
             <input type="text" class="text-right h3 font-weight-normal mt-2 ml-2" style="width:300px;" id="usernum">
-            <!-- <ul id="userdata" class="list-group">
-                <li class="list-group-item text-right h4 font-weight-normal mt-2 ml-2 p-3"
-                    style="width:300px; height:35px;" id="resultnum"></li>
-            </ul> -->
             <div class="container mt-2">
                 <div class="row">
                     <div class="col-3">
@@ -163,36 +159,7 @@
             // docalculator(mathinput);
         }
 
-        // //計算
-        // function docalculator(mathinput) {
-        //     switch (mathinput) {
-        //         case "+":
-        //             if (number2 != "") {
-        //                 sum = parseFloat(number1) + parseFloat(number2);
-        //                 document.getElementById("resultnum").innerHTML = sum;
-        //             }
-        //             break;
-        //         case "-":
-        //             if (number2 != "") {
-        //                 sum = parseFloat(number1) - parseFloat(number2);
-        //                 document.getElementById("resultnum").innerHTML = sum;
-        //             }
-        //             break;
-        //         case "*":
-        //             if (number2 != "") {
-        //                 sum = parseFloat(number1) * parseFloat(number2);
-        //                 document.getElementById("resultnum").innerHTML = sum;
-        //             }
-        //             break;
-        //         case "/":
-        //             if (number2 != "") {
-        //                 sum = parseFloat(number1) / parseFloat(number2);
-        //                 document.getElementById("resultnum").innerHTML = sum;
-        //             }
-        //             break;
-        //     }
-        // }
-
+        //計算
         function docal() {
             if (mathinput == "+") {
                 if (number2 != "") {
@@ -215,7 +182,7 @@
             else if (mathinput == "/") {
                 if (number2 != "") {
                     sum = parseFloat(number1) / parseFloat(number2);
-                    document.getElementById("usernum").value = sum;
+                    document.getElementById("usernum").value  = sum;
                 }
             }
         }

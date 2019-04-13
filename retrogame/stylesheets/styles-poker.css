@@ -341,31 +341,33 @@ template {
   display: none;
 }
 
-#box {
-  width: 600px;
-  height: 600px;
-  border: 2px #88d8bd solid;
-  position: relative;
+.container {
+  width: 1080px;
+  margin: 0 auto;
+  text-align: center;
 }
 
 button {
-  background: #086b8a;
-  width: 100px;
-  height: 50px;
-  color: #fff;
-  font-size: 18px;
+  background: #dee9bf;
+  border-style: none;
+  border-radius: 5px;
+  padding: 10px;
 }
 
-.picture {
-  background-image: url("http://lorempixel.com/600/600/cats");
-  width: 150px;
-  height: 150px;
-  border: 1px #fff solid;
-  position: absolute;
+.row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
-.excample img {
-  width: 150px;
-  height: 150px;
+.col {
+  width: 80px;
+  height: 120px;
+  background: #dee9bf;
+  margin: 10px;
+  margin-top: 20px;
 }
-/*# sourceMappingURL=styles.css.map */
+/*# sourceMappingURL=styles-poker.css.map */

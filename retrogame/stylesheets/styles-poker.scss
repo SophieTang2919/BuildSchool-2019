@@ -1,0 +1,27 @@
+@import"normalize";
+
+.container {
+    width: 1080px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+button {
+    background: #dee9bf;
+    border-style: none;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.row {
+    display: flex;
+    justify-content:center;
+}
+
+.col {
+    width: 80px;
+    height: 120px;
+    background: #dee9bf;
+    margin: 10px;
+    margin-top: 20px;
+}

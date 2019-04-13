@@ -14,79 +14,42 @@
 </head>
 
 <body>
-    <div class="container">
-        <h3>拼圖遊戲</h3>
-        <button class="mb-3">開始遊戲</button>
-        <div class="row" id="box">
-            <div class="row">
-                <div class="col p-0">
-                    <img src="http://lorempixel.com/125/125/cats/" alt="貓咪圖">
+    <div class="container mt-4 text-center">
+        <button class="mb-3" id="start">開始遊戲</button>
+        <div class="row mx-auto" id="box">
+            <!-- <div class="col-3 border border-white" id="picture">
                 </div>
-                <div class="col p-0">
-                    <img src="http://lorempixel.com/125/125/cats/" alt="貓咪圖">
+                <div class="col-3 border border-white" id="picture">
                 </div>
-                <div class="col p-0">
-                    <img src="http://lorempixel.com/125/125/cats/" alt="貓咪圖">
+                <div class="col-3 border border-white" id="picture">
                 </div>
-                <div class="col p-0">
-                    <img src="http://lorempixel.com/125/125/cats/" alt="貓咪圖">
+                <div class="col-3 border border-white" id="picture">
                 </div>
-            </div>
-            <div class="row">
-                <div class="col p-0">
-                    <img src="http://lorempixel.com/125/125/cats/" alt="貓咪圖">
+                <div class="col-3 border border-white" id="picture">
                 </div>
-                <div class="col p-0">
-                    <img src="http://lorempixel.com/125/125/cats/" alt="貓咪圖">
+                <div class="col-3 border border-white" id="picture">
                 </div>
-                <div class="col p-0">
-                    <img src="http://lorempixel.com/125/125/cats/" alt="貓咪圖">
+                <div class="col-3 border border-white" id="picture">
                 </div>
-                <div class="col p-0">
-                    <img src="http://lorempixel.com/125/125/cats/" alt="貓咪圖">
+                <div class="col-3 border border-white" id="picture">
                 </div>
-            </div>
-            <div class="row">
-                <div class="col p-0">
-                    <img src="http://lorempixel.com/125/125/cats/" alt="貓咪圖">
+                <div class="col-3 border border-white" id="picture">
                 </div>
-                <div class="col p-0">
-                    <img src="http://lorempixel.com/125/125/cats/" alt="貓咪圖">
+                <div class="col-3 border border-white" id="picture">
                 </div>
-                <div class="col p-0">
-                    <img src="http://lorempixel.com/125/125/cats/" alt="貓咪圖">
+                <div class="col-3 border border-white" id="picture">
                 </div>
-                <div class="col p-0">
-                    <img src="http://lorempixel.com/125/125/cats/" alt="貓咪圖">
+                <div class="col-3 border border-white" id="picture">
                 </div>
-            </div>
-            <div class="row">
-                <div class="col p-0">
-                    <img src="http://lorempixel.com/125/125/cats/" alt="貓咪圖">
+                <div class="col-3 border border-white" id="picture">
                 </div>
-                <div class="col p-0">
-                    <img src="http://lorempixel.com/125/125/cats/" alt="貓咪圖">
+                <div class="col-3 border border-white" id="picture">
                 </div>
-                <div class="col p-0">
-                    <img src="http://lorempixel.com/125/125/cats/" alt="貓咪圖">
+                <div class="col-3 border border-white" id="picture">
                 </div>
-                <div class="col p-0">
-                    <img src="http://lorempixel.com/125/125/cats/" alt="貓咪圖">
-                </div>
-            </div>
+                <div class="col-3 border border-white" id="picture"> -->
         </div>
-
     </div>
-
-
-
-
-    <script>
-    //code
-    </script>
-
-
-
 
 
     <!-- Optional JavaScript -->
@@ -100,6 +63,81 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+
+    <script>
+        var a;
+        //圖片自動生成&切割
+        for (var i = 0; i < 16; i++) {
+            $("#box").append("<div class='col-3 picture'>" + i + "</div>");
+            var row = parseInt(i / 4);
+            var col = i % 4;
+            $(".picture:last").css("background-position-y", row * -150 + "px");//圖片往上移
+            $(".picture:last").css("background-position-x", col * -150 + "px");//圖片往左移
+            $(".picture:last").css("top", row * 150 + "px");
+            $(".picture:last").css("left", col * 150 + "px");
+            //圖片可以點擊>綁定事件
+            $(".picture:last").click(change);
+            //給每一張圖有一個i的位置，從0開始
+            $(".picture:last").val(i);
+            $(".picture:first").css("display", "none"); //左上角變空白  
+        }
+        var b;
+        $("#start").click(function () {
+            a = $("#box").children().toArray(); //#box的子元素，變成陣列
+            var n = 0;
+            b = false;
+            while (n <= 100) {
+                var change_num = Math.floor(Math.random() * a.length);
+                $(a[change_num]).click();
+                n++;
+            }
+            b = true;
+        })
+
+        function change() {
+            console.log(this);
+            // alert("可以點擊圖片");
+            var j = this.value - 0; //圖片的位置
+            var row = parseInt(j / 4) * 150;//left
+            var col = j % 4 * 150;//top
+            var image = a[0].value - 0;
+            if (image + 1 == j && image % 4 != 3) {
+                $(this).css("left", col - 150 + "px");
+                //點擊與空白互換
+                this.value = image;
+                a[0].value = j;
+            }
+            else if (image - 1 == j && image % 4 != 0) {
+                $(this).css("left", col + 150 + "px");
+                this.value = image;
+                a[0].value = j;
+            }
+            else if (image + 4 == j) {
+                $(this).css("top", row - 150 + "px");
+                this.value = image;
+                a[0].value = j;
+            }
+            else if (image - 4 == j) {
+                $(this).css("top", row + 150 + "px");
+                this.value = image;
+                a[0].value = j;
+            }
+            judgeimage();
+        }
+
+        function judgeimage() {
+            for (var i = 0; i < 16; i++) {
+                if (a[i].value != i) {
+                    return;
+                }
+            }
+            // console.log(123);
+            if (b) {
+                $(".picture:first").css("display", "block");
+                alert("終於成功了!!!");
+            }
+        }
+    </script>
 </body>
 
 </html>

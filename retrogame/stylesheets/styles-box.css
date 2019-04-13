@@ -341,31 +341,76 @@ template {
   display: none;
 }
 
-#box {
-  width: 600px;
-  height: 600px;
-  border: 2px #88d8bd solid;
+html {
+  font-size: 20px;
+  font-family: sans-serif;
+  line-height: 1.4;
+}
+
+.container {
+  width: 1080px;
+  margin: 0 auto;
+  color: #fff;
+  background: #000000dc;
+}
+
+h1 {
+  text-align: center;
+}
+
+.number {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.number input {
+  height: 35px;
+  width: 100px;
+  margin: 5px;
+}
+
+p {
+  text-align: center;
+}
+
+p input {
+  height: 35px;
+  width: 200px;
+  margin: 5px;
+}
+
+.box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#showball {
+  margin: 0 auto;
+  width: 200px;
+  height: 300px;
+  background: #bebebedc;
+  font-size: 180px;
+  text-align: center;
   position: relative;
 }
 
-button {
-  background: #086b8a;
-  width: 100px;
-  height: 50px;
-  color: #fff;
-  font-size: 18px;
-}
-
-.picture {
-  background-image: url("http://lorempixel.com/600/600/cats");
-  width: 150px;
-  height: 150px;
-  border: 1px #fff solid;
+.hiden {
+  width: 200px;
+  height: 300px;
+  background: #bebebedc;
   position: absolute;
+  left: 200px;
 }
 
-.excample img {
-  width: 150px;
-  height: 150px;
+button {
+  margin: 0 auto;
 }
-/*# sourceMappingURL=styles.css.map */
+/*# sourceMappingURL=styles-box.css.map */
