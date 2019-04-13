@@ -26,8 +26,8 @@
         <p>已經抽過:<input type="text" class="font-weight-normal" id="finally_num"></p>
         <div class="box">
             <div class="mb-2" id="showball">
-                <div class="hiden"></div>
-                <div class="hiden"></div>
+                <!-- <div class="hiden"></div>
+                <div class="hiden"></div> -->
             </div>
             
         </div>
@@ -93,7 +93,7 @@
         function numbertype() {
             var number = Math.floor(Math.random() * array.length);
             document.getElementById("showball").innerHTML = '<div class="mb-2" id="showball">' + array[number] + '</div>';
-            document.getElementById("finally_num").value += array[number] + ",";
+            document.getElementById("finally_num").value += array[number] + " ";
             
             array.splice(number, 1);
         }
