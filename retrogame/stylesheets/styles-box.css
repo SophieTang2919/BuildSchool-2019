@@ -413,4 +413,22 @@ p input {
 button {
   margin: 0 auto;
 }
+
+@media screen and (max-width: 580px) {
+  .container {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 490px) {
+  .container {
+    width: 90%;
+  }
+  .number {
+    font-size: 16px;
+  }
+  .number input {
+    width: 80px;
+  }
+}
 /*# sourceMappingURL=styles-box.css.map */

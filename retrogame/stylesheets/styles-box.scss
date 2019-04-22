@@ -69,3 +69,21 @@ p {
 button {
   margin: 0 auto;
 }
+
+@media screen and (max-width: 580px) {
+  .container {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 490px) {
+  .container {
+    width: 90%;
+  }
+  .number {
+    font-size: 16px;
+    input {
+      width: 80px;
+    }
+  }
+}

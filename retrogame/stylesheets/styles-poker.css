@@ -342,7 +342,7 @@ template {
 }
 
 .container {
-  width: 1080px;
+  width: 1000px;
   margin: 0 auto;
   text-align: center;
 }
@@ -352,22 +352,24 @@ button {
   border-style: none;
   border-radius: 5px;
   padding: 10px;
+  font-size: 20px;
 }
 
-.row {
+.rowa {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
-.col {
-  width: 80px;
-  height: 120px;
+.col-3a {
+  width: 188px;
+  height: 262px;
   background: #dee9bf;
   margin: 10px;
-  margin-top: 20px;
 }
 /*# sourceMappingURL=styles-poker.css.map */

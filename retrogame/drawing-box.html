@@ -29,10 +29,10 @@
                 <!-- <div class="hiden"></div>
                 <div class="hiden"></div> -->
             </div>
-            
         </div>
         <div class="buttonbox">
             <button type="button" class="btn btn-secondary btn-block" id="start" style="width: 80px;">抽獎</button>
+            <button type="button" class="btn btn-secondary btn-block" id="end" style="width: 120px;">重新開始</button>
         </div>
 
     </div>
@@ -55,6 +55,12 @@
             playgame();
         })
 
+        $("#end").click(function () {
+            document.getElementById("minnum").value = "";
+            document.getElementById("maxnum").value = "";
+            document.getElementById("showball").innerHTML = "";
+            document.getElementById("finally_num").value = "";
+        })
         //抽獎
         function playgame() {
             var min = document.getElementById("minnum").value;

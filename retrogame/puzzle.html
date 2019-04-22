@@ -17,37 +17,6 @@
     <div class="container mt-4 text-center">
         <button class="mb-3" id="start">開始遊戲</button>
         <div class="row mx-auto" id="box">
-            <!-- <div class="col-3 border border-white" id="picture">
-                </div>
-                <div class="col-3 border border-white" id="picture">
-                </div>
-                <div class="col-3 border border-white" id="picture">
-                </div>
-                <div class="col-3 border border-white" id="picture">
-                </div>
-                <div class="col-3 border border-white" id="picture">
-                </div>
-                <div class="col-3 border border-white" id="picture">
-                </div>
-                <div class="col-3 border border-white" id="picture">
-                </div>
-                <div class="col-3 border border-white" id="picture">
-                </div>
-                <div class="col-3 border border-white" id="picture">
-                </div>
-                <div class="col-3 border border-white" id="picture">
-                </div>
-                <div class="col-3 border border-white" id="picture">
-                </div>
-                <div class="col-3 border border-white" id="picture">
-                </div>
-                <div class="col-3 border border-white" id="picture">
-                </div>
-                <div class="col-3 border border-white" id="picture">
-                </div>
-                <div class="col-3 border border-white" id="picture">
-                </div>
-                <div class="col-3 border border-white" id="picture"> -->
         </div>
     </div>
 
@@ -65,7 +34,6 @@
         crossorigin="anonymous"></script>
 
     <script>
-        var a;
         //圖片自動生成&切割
         for (var i = 0; i < 16; i++) {
             $("#box").append("<div class='col-3 picture'></div>");
@@ -81,12 +49,14 @@
             $(".picture:last").val(i);
             $(".picture:first").css("display", "none"); //左上角變空白  
         }
+        var a;
         var b;
         $("#start").click(function () {
             a = $("#box").children().toArray(); //#box的子元素，變成陣列
             var n = 0;
             b = false;
-            while (n <= 300) {
+            // while (n <= 300) {
+            while (a[0].value == 0 || a[3].value == 3 || a[15].value == 15 || a[12].value == 12) {
                 var change_num = Math.floor(Math.random() * a.length);
                 $(a[change_num]).click();
                 n++;

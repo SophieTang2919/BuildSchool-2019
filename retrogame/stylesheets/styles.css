@@ -341,10 +341,14 @@ template {
   display: none;
 }
 
+body {
+  background: #b7d8e0;
+}
+
 #box {
-  width: 600px;
-  height: 600px;
-  border: 2px #88d8bd solid;
+  width: 604px;
+  height: 604px;
+  border: 2px #144233 solid;
   position: relative;
 }
 
@@ -357,15 +361,20 @@ button {
 }
 
 .picture {
-  background-image: url("http://lorempixel.com/600/600/cats");
+  background-image: url("/retrogame/image/dogs.jpg");
   width: 150px;
   height: 150px;
   border: 1px #fff solid;
   position: absolute;
 }
 
-.excample img {
-  width: 150px;
-  height: 150px;
+@media screen and (max-width: 767px) {
+  .container {
+    width: 90%;
+  }
+  .picture {
+    width: 100px;
+    height: 100px;
+  }
 }
 /*# sourceMappingURL=styles.css.map */
